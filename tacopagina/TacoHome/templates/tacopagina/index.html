@@ -1,0 +1,478 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="es">
+	<head>
+		{% load static %}
+		<title>TACO HOME</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'tacopagina/css/main.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'tacopagina/css/noscript.css' %}" /></noscript>
+		
+		<script>
+			const imageBaseURL = "{% static 'tacopagina/images/modal/' %}";
+	
+			// Aquí puedes poner el resto de tu script
+			document.addEventListener("DOMContentLoaded", function() {
+				const productLinks = document.querySelectorAll(".product-link");
+				const modal = document.getElementById("modal");
+				const modalImage = document.getElementById("modal-image");
+				const closeBtn = document.querySelector(".close-btn");
+	
+				productLinks.forEach(link => {
+					link.addEventListener("click", function(e) {
+						e.preventDefault();
+						const productName = this.getAttribute("data-product");
+						const imagePath = `${imageBaseURL}${productName}.jpg`;
+	
+						modalImage.src = imagePath;
+						modal.style.display = "block";
+					});
+				});
+	
+				closeBtn.addEventListener("click", function() {
+					modal.style.display = "none";
+				});
+	
+				window.addEventListener("click", function(e) {
+					if (e.target === modal) {
+						modal.style.display = "none";
+					}
+				});
+			});
+		</script>
+		
+		<style>
+			#bg:after {
+			-moz-transform: scale(1.125);
+			-webkit-transform: scale(1.125);
+			-ms-transform: scale(1.125);
+			transform: scale(1.125);
+			-moz-transition: -moz-transform 0.325s ease-in-out, -moz-filter 0.325s ease-in-out;
+			-webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out;
+			-ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out;
+			transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out;
+			background-image: url("{% static 'tacopagina/images/bg.jpg' %}");
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			z-index: 1;
+		}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="content">
+							<div class="inner">
+								<h1>TACO HOME</h1>
+								<p><span style="font-weight: bold; font-size: larger;">Taco</span>stumbras a nuestro sabor...!</p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#tacos">Tacos</a></li>
+								<li><a href="#burritos">Burritos</a></li>
+								<li><a href="#quesadillas">Quesadillas</a></li>
+								<li><a href="#varios">Varios</a></li>
+								<!--<li><a href="#elements">Elements</a></li>-->
+							</ul>
+						</nav>
+					</header>
+				<!-- Main -->
+					<div id="main">
+						<!-- Modal -->
+						<div id="modal" class="modal">
+							<div class="modal-content">
+								<span class="close-btn" type="button">&times;</span>
+								<img id="modal-image" src="" alt="Image">
+							</div>
+						</div>
+						<!-- Tacos -->
+							<article id="tacos">
+								
+								<h2 class="major">Tacos</h2>
+								<section>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Nombre</th>
+													<th>Descripción</th>
+													<th>Precio</th>
+													<th>Ver</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Taco Loco</td>
+													<td>No hay jajaj</td>
+													<td>$2.00</td>
+													<td><a href="#" class="product-link" data-product="taco1"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+												<tr>
+													<td>Taco Regular Duro</td>
+													<td>Masa crocante de harina de maíz, Frijoles, Carne molida, Tres quesos, Lechuga y Ensalada</td>
+													<td>$3.50</td>
+													<td><a href="#" class="product-link" data-product="taco2"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+												<tr>
+													<td>Taco Supremo Duro</td>
+													<td>Masa crocante de harina de maíz, Frijoles, Carne molida, Pollo, Lomo, Tres quesos, Lechuga y Ensalada</td>
+													<td>$3.50</td>
+													<td><a href="#" class="product-link" data-product="taco3"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+												<tr>
+													<td>Taco Suave Sencillo</td>
+													<td>Masa suave de harina de trigo, Frijoles, Carne molida, Tres quesos, Lechuga y Ensalada</td>
+													<td>$3.50</td>
+													<td><a href="#" class="product-link" data-product="taco4"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+												<tr>
+													<td>Taco Suave Supremo</td>
+													<td>Masa suave de harina de trigo, Frijoles, Carne molida, Pollo, Lomo, Tres quesos, Lechuga y Ensalada</td>
+													<td>$3.50</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</section>
+							</article>
+							
+
+						<!-- Burritos -->
+							<article id="burritos">
+								<h2 class="major">Burritos</h2>
+								<section>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Nombre</th>
+													<th>Descripción</th>
+													<th>Precio</th>
+													<th>Ver</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Burrito Sencillo</td>
+													<td>Masa suave de harina de trigo, Frijoles, Carne molida, Tres quesos, Lechuga y Ensalada</td>
+													<td>$4.50</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+												<tr>
+													<td>Burrito Vegetariano</td>
+													<td>Lechuga, Frejol, Chocol, Rábano, Queso granulado, Salsa de queso y Queso líquido</td>
+													<td>$4.50</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+												<tr>
+													<td>Burrito Supremo Completo</td>
+													<td>Masa suave de harina de trigo, Frijoles, Carne molida, Pollo, Lomo, Tres quesos, Lechuga y Ensalada</td>
+													<td>$5.50</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+												<tr>
+													<td>Burrito con Papas</td>
+													<td>Masa suave de harina de trigo, Frijoles, Carne molida, Papas fritas, Tres quesos y Salsa</td>
+													<td>$5.50</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+												<tr>
+													<td>Burrito con Chorizo</td>
+													<td>Masa suave de harina de trigo, Frijoles, Chorizo de ternera, Encebollado y Lechuga</td>
+													<td>$5.50</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+											</tbody>
+											<!--<tfoot>
+												<tr>
+													<td colspan="1"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot> -->										</table>
+									</div>
+								</section>
+							</article>
+
+						<!-- Quesadillas -->
+							<article id="quesadillas">
+								<h2 class="major">Quesadillas</h2>
+								<section>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Nombre</th>
+													<th>Descripción</th>
+													<th>Precio</th>
+													<th>Ver</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Quesadilla de Queso</td>
+													<td>Masa suave de harina de trigo, Queso granulado, Queso líquido y Salsas</td>
+													<td>$3.50</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+												<tr>
+													<td>Quesadilla Vegetariana</td>
+													<td>Lechuga, Rábano, Frejol, Queso granulado, Queso líquido y Salsa de queso</td>
+													<td>$3.50</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+												<tr>
+													<td>Quesadilla de Choclo</td>
+													<td>Queso granulado, Choclo, Queso líquido y Salsa de queso</td>
+													<td>$4.50</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+												<tr>
+													<td>Quesadilla de Chorizo</td>
+													<td>Masa suave de harina de trigo, Chorizo de Termera, Queso granulado y Salsas</td>
+													<td>$4.50</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+												<tr>
+													<td>Quesadilla Completa</td>
+													<td>Masa suave de harina de trigo, Carne molida, Pollo, Lomo, Queso granulado, Queso líquido y Salsas</td>
+													<td>$5.50</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+												<tr>
+													<td>Quesadilla Crocante</td>
+													<td>Masa suave de harina de trigo con ojuelas crocantes de maíz dentro, Carne molida, Pollo, Lomo, Queso granulado, Lechuga, Ensalada y Salsas</td>
+													<td>$6.00</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+											</tbody>
+											<!--<tfoot>
+												<tr>
+													<td colspan="1"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot> -->										</table>
+									</div>
+								</section>
+							</article>
+
+						<!-- Varios -->
+							<article id="varios">
+								<h2 class="major">Varios</h2>
+								<section>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Nombre</th>
+													<th>Descripción</th>
+													<th>Precio</th>
+													<th>Ver</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Papas Home</td>
+													<td>Papas Fritas, Frijoles, Carne molida, Pollo, Lomo, Hojuelas de maíz, Queso granulado y Salsas</td>
+													<td>$5.50</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+												<tr>
+													<td>Fajita</td>
+													<td>Harina de trigo, Lomo, Pollo o Carne Molida, Lechuga y Tres quesos</td>
+													<td>$5.50</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+												<tr>
+													<td>Bandejita</td>
+													<td>Lomo, Pollo o Carne Molida, Choclo, Frijoles, Hojuelas de maíz Ensalada y Tres quesos</td>
+													<td>$6.00</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+												<tr>
+													<td>Bandejita Vegetariana</td>
+													<td>Porción de nachos, Lechuga, Choclo, Frejol, Rábano, Queso granulado, Queso líquido y salsa de queso</td>
+													<td>$4.50</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+												<tr>
+													<td>Flautita</td>
+													<td>Media tortilla de harina de Trigo, Tres quesos, Carne Molida, Lomo y Pollo</td>
+													<td>$4.50</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+												<tr>
+													<td>Steak Bowl</td>
+													<td>Arroz con moros, Lomo en trocitos, Lechuga, Guacamole, Pico de Gallo, Tres tipos de queso y Salsa de Queso</td>
+													<td>$6.00</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</section>
+								<br>
+								<h3 class="major">Nachos</h3>
+								<section>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Nombre</th>
+													<th>Descripción</th>
+													<th>Precio</th>
+													<th>Ver</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Nachos con Queso</td>
+													<td>Hojuelas crocantes de maíz acompañadas de queso granulado, Queso líquido y Salsas</td>
+													<td>$3.50</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+												<tr>
+													<td>Nachos Supremo Completo</td>
+													<td>Hojuelas crocantes de maíz, Frijoles, Carne molida, Pollo, Lomo, Queso granulado, Queso líquido y Salsas</td>
+													<td>$5.50</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</section>
+								<br>
+								<h3 class="major">Copas Mexicanas</h3>
+								<section>
+									<div class="table-wrapper">
+										<table>
+											<h4 style="text-align: center;">¡PROMO! Dos Copas Personales a tan solo $10.00</h4>
+											<thead>
+												<tr>
+													<th>Nombre</th>
+													<th>Descripción</th>
+													<th>Precio</th>
+													<th>Ver</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Copa Mexicana Personal</td>
+													<td>Rellenas de Lomo, Pollo, Carne molida, Frijoles, Guacamoles, Crema Agria y Aderesos</td>
+													<td>$6.00</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+												<tr>
+													<td>Copa Mexicana Regular</td>
+													<td>Rellenas de Lomo, Pollo, Carne molida, Frijoles, Guacamoles, Crema Agria y Aderesos</td>
+													<td>$25.00</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+												<tr>
+													<td>Copa Mexicana Suprema</td>
+													<td>Rellenas de Lomo, Pollo, Carne molida, Frijoles, Guacamoles, Crema Agria y Aderesos</td>
+													<td>$35.00</td>
+													<td><a href="#" class="product-link" data-product="imagen_base"><i class="icon_redes solid fa-eye"></i></a></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</section>
+								<br>
+								<h3 class="major">Bebidas</h3>
+								<section>
+									<div class="table-wrapper">
+										<table>
+											<tbody>
+												<tr>
+													<td>Jamaica Mexicana</td>
+													<td>$1.00</td>
+												</tr>
+												<tr>
+													<td>Horchata Roja Ecuatoriana</td>
+													<td>$1.00</td>
+												</tr>
+												<tr>
+													<td>Soya</td>
+													<td>$1.00</td>
+												</tr>
+												<tr>
+													<td>Jugo de Coco</td>
+													<td>$1.00</td>
+												</tr>
+												<tr>
+													<td>Colas</td>
+													<td>$0.75</td>
+												</tr>
+												<tr>
+													<td>Botella de Agua</td>
+													<td>$0.50</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</section>
+								<br>
+							</article>
+					</div>
+					
+				<!-- Footer -->
+				<footer id="footer">
+					<nav>
+						<ul>
+							<li>
+								<a href="http://wa.me/+593963410295" class="icon_redes brands fa-whatsapp">
+									<span class="label">Whatsapp</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/TacoHomeEc?mibextid=ZbWKwL" class="icon_redes brands fa-facebook">
+									<span class="label">Facebook</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.instagram.com/tacohome.ec/" class="icon_redes brands fa-instagram">
+									<span class="label">Instagram</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.tiktok.com/@tacohome" class="icon_redes brands fa-tiktok">
+									<span class="label">Tiktok</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<a href="https://www.google.com/maps/dir//-3.2572778,-79.9600278/@-3.2572158,-79.9602575,19z?hl=es&entry=ttu">
+						Ayacucho entre Sucre & 25 de Junio</a>
+					<h5><p class="copyright"> Diseño:  <a href="https://www.facebook.com/profile.php?id=100010413496871">A. Blacio</a>.</p></h5>
+				</footer>
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="{% static 'tacopagina/js/jquery.min.js' %}"></script>
+			<script src="{% static 'tacopagina/js/browser.min.js' %}"></script>
+			<script src="{% static 'tacopagina/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'tacopagina/js/util.js' %}"></script>
+			<script src="{% static 'tacopagina/js/main.js' %}"></script>
+			<script>
+				window.onload = function() { document.body.classList.remove('is-preload'); }
+				window.ontouchmove = function() { return false; }
+				window.onorientationchange = function() { document.body.scrollTop = 0; }
+			</script>
+
+	</body>
+</html>
